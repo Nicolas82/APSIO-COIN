@@ -77,6 +77,7 @@ package object http extends ApiMarshallers with ScorexLogging {
                   case SetAssetScriptTransaction  => TransactionFactory.setAssetScript(txJson.as[SetAssetScriptRequest], senderPk)
                   case SponsorFeeTransaction      => TransactionFactory.sponsor(txJson.as[SponsorFeeRequest], senderPk)
                   case UpdateAssetInfoTransaction => txJson.as[UpdateAssetInfoRequest].toTxFrom(senderPk)
+                  case DiplomaCampaignTransaction => TransactionFactory.diplomaCampaign(txJson.as[DiplomaCampaignRequest], senderPk)
                 }
             }
           }

@@ -75,6 +75,30 @@ object  TransactionFactory {
       )
     } yield tx
 
+    def diplomaCampaign(request: DiplomaCampaignRequest, sender: PublicKey): Either[ValidationError, DiplomaCampaignTransaction] = 
+      for {
+        diplomes <- DiplomaCampaignTransaction.parseTransfersList(request.diplomes)
+        tx <- MassTransferTransaction.create(
+          request.version.getOrElse(1.toByte),
+          sender,
+          diplomes,
+          request.fee,
+          0,
+          Proofs.empty
+        )
+      } yield tx
+
+      def diplomaCampaign(
+          request: DiplomaCampaignRequest,
+          wallet: Wallet,
+          signerAddress: String,
+          time: Time
+      ) Either[ValidationError, DiplomaCampaignTransaction] => 
+        for {
+            diplomes <- DiplomaCampaignTransaction.parseTran
+
+        } yield tx
+
   def setScript(request: SetScriptRequest, wallet: Wallet, time: Time): Either[ValidationError, SetScriptTransaction] =
     setScript(request, wallet, request.sender, time)
 

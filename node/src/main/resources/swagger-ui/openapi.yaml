@@ -28,7 +28,29 @@ tags:
   - name: activation
   - name: debug
   - name: node
+  - name: diplomes
 paths:
+  '/diplomes/balances/': 
+    get: 
+      tags: 
+       - diplomes
+      summary: Wallet diplomes
+      description: >-
+        Get a list all diplomes of a wallet
+      responses:
+        '200':
+          description: successful operation
+  '/diplomes/getDiplome':
+    get:
+      tags:
+        - diplomes
+      summary: Wallet diplomes
+      description: >-
+        Get a diplome of an address
+      responses:
+        '200':
+          description: successful operation
+
   /addresses:
     get:
       tags:

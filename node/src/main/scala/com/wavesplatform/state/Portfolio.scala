@@ -6,10 +6,11 @@ import cats.kernel.CommutativeSemigroup
 import com.wavesplatform.state.diffs.BlockDiffer.Fraction
 import com.wavesplatform.transaction.Asset
 import com.wavesplatform.transaction.Asset._
+import com.wavesplatform.transaction.assets.DiplomaCampaignTransaction.{Diplome}
 
 import scala.collection.immutable.Map
 
-case class Portfolio(balance: Long = 0L, lease: LeaseBalance = LeaseBalance.empty, assets: Map[IssuedAsset, Long] = Map.empty) {
+case class Portfolio(balance: Long = 0L, lease: LeaseBalance = LeaseBalance.empty, assets: Map[IssuedAsset, Long] = Map.empty, diplomes: Map[Diplome, Long] = Map.empty) {
   lazy val effectiveBalance: Long = safeSum(balance, lease.in) - lease.out
   lazy val spendableBalance: Long = balance - lease.out
 

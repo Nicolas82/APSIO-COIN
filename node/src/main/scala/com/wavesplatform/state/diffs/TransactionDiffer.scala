@@ -189,6 +189,7 @@ object TransactionDiffer {
           case sstx: SetScriptTransaction        => SetScriptTransactionDiff(blockchain)(sstx).traced
           case sstx: SetAssetScriptTransaction   => AssetTransactionsDiff.setAssetScript(blockchain)(sstx).traced
           case stx: SponsorFeeTransaction        => AssetTransactionsDiff.sponsor(blockchain)(stx).traced
+          case dctx: DiplomaCampaignTransaction  => DiplomaCampaignTransactionDiff(blockchain, currentBlockTs)(dctx).traced
           case _                                 => UnsupportedTransactionType.asLeft.traced
         }
       }

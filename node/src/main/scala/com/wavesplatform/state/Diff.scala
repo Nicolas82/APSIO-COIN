@@ -42,6 +42,34 @@ object VolumeAndFee {
   }
 }
 
+/*
+  Ici les informations modifiables concernant les diplomes
+*/
+case class DiplomeInfo(name: Array[Byte], description: Array[Byte], lastUpdatedAt: Height)
+
+object DiplomeInfo {
+
+  implicit val semigroup: Semigroup[DiplomeInfo] = (_, y) => y
+
+  def apply(name: String, description: String, lastUpdatedAt: Height): DiplomeInfo = 
+    DiplomeInfo(new String(name), new String(description), lastUpdatedAt)
+
+}
+
+/*
+  Ici les informations statiques concernant les diplomes
+*/
+case class DiplomeStaticInfo(source: TransactionId, sender: PublicKey, recipient: PublicKey)
+
+case class DiplomeDescription(
+  originTransactionId: ByteStr, //La transaction originelle
+  sender: PublicKey, // Celui qui à créer le diplome
+  recipient: PublicKey, // La personne à qui est destiné le diplôme
+  name: Array[Byte], //Le nom du diplome
+  description: Array[Byte], //La description du diplome
+  lastUpdatedAt: Height, //La hauteur de block de la dernière mise à jour des informations du diplôme
+)
+
 case class AssetInfo(name: ByteString, description: ByteString, lastUpdatedAt: Height)
 
 object AssetInfo {
