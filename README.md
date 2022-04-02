@@ -1,51 +1,27 @@
-<h1 align="center">🔷 Waves Node</h1>
+<h1 align="center">APSIO Node</h1>
 
 <p align="center">
   <a href="https://github.com/wavesplatform/Waves/actions" target="_blank">
-    <img alt="Checks status" src="https://badgen.net/github/checks/wavesplatform/waves?cache=600"  />
+    <img alt="stars" src="https://badgen.net/github/stars/Nicolas82/APSIO-COIN"  />
   </a>
   <a href="https://github.com/wavesplatform/Waves/releases" target="_blank">
-    <img alt="Downloads" src="https://badgen.net/github/assets-dl/wavesplatform/waves?color=blue" />
-  </a>
-  <a href="https://hub.docker.com/r/wavesplatform/wavesnode" target="_blank">
-    <img alt="Docker pulls" src="https://badgen.net/docker/pulls/wavesplatform/wavesnode?icon=docker" />
-  </a>
-
-  <br/>
-
-  <a href="https://twitter.com/wavesprotocol" target="_blank">
-    <img alt="Twitter: Waves Tech" src="https://badgen.net/twitter/follow/wavesprotocol?icon=twitter&label=follow%20on%20Twitter" />
-  </a>
-  <a href="https://medium.com/wavesprotocol" target="_blank">
-    <img alt="Medium: Waves Tech" src="https://badgen.net/runkit/msmolyakov/get-medium-followers?icon=medium&cache=86400" />
-  </a>
-  <a href="https://t.me/waves_ride_dapps_dev" target="_blank">
-    <img alt="Telegram" src="https://badgen.net/badge/icon/Waves%20Dev%20Jedi?icon=telegram&label=Telegram"/>
-  </a>
-  <a href="https://github.com/msmolyakov/awesome-waves" target="_blank">
-    <img alt="Awesome Waves" src="https://badgen.net/badge/icon/Awesome%20Waves?icon=awesome&label&color=pink" />
+    <img alt="release" src="https://badgen.net/github/release/Nicolas82/APSIO-COIN" />
   </a>
 </p>
 
-> Waves is an open source [blockchain protocol](https://waves.tech/waves-protocol). <br/> 
-You can use it to build your own decentralized applications. Waves provides full blockchain ecosystem including smart contracts language called RIDE.
+> APSIO is an open source blockchain protocol based on [Waves protocol](https://waves.tech/waves-protocol). <br/> 
+> This is a blockchain protocol built for the domain of education. You can use it to build your own decentralized applications. APSIO provides full blockchain ecosystem including smart contracts language  based on RIDE (Waves smart contracts language).
 
 
-## ✨ Demo
+## ✨ Functionalities
 
-<p align="center">
-    <img src="https://user-images.githubusercontent.com/1945126/78667964-88209480-78e2-11ea-9304-72178a6a5974.gif" alt="Waves Node Run Demo">
-</p>
+APSIO node is a host connected to the blockchain network with the following functions:
 
-Waves node is a host connected to the blockchain network with the following functions:
-
-- Processing and validation of [transactions](https://docs.waves.tech/en/blockchain/transaction/transaction-validation)
-- Generation and storage of [blocks](https://docs.waves.tech/en/blockchain/block/)
-- Network communication with [other nodes](https://docs.waves.tech/en/blockchain/blockchain/#node)
-- [REST API](https://docs.waves.tech/en/waves-node/node-api/)
-- [Extensions](https://docs.waves.tech/en/waves-node/extensions/) management
-
-Learn more about Waves Node in the [documentation](https://docs.waves.tech/en/waves-node/).
+- Processing and validation of transactions
+- Generation and storage of blocks
+- Network communication with other nodes
+- REST API
+- Extensions management
 
 ## 🚀️ Getting started
 
@@ -186,19 +162,10 @@ For major changes, please open an issue first to discuss what you would like to 
 
 Please follow the [code of conduct](./CODE_OF_CONDUCT.md) during communication with the each other. 
 
-## ℹ️ Support (get help)
-
-Keep up with the latest news and articles, and find out all about events happening on the [Waves Protocol](https://waves.tech/).
-
-- [Telegram Dev Chat](https://t.me/waves_ride_dapps_dev)
-- [Waves Blog](https://medium.com/wavesprotocol)
-
 ## ⛓ Links
 
 - [Documentation](https://docs.waves.tech/)
-- Blockchain clients for Mainnet: [Waves Exchange](https://waves.exchange/), [Waves FX](https://github.com/wavesfx), [SIGN app](https://www.sign-web.app/)
-- Blockchain clients for Testnet: [Waves Exchange](https://testnet.waves.exchange/)
-- Blockchain Explorer: [Mainnet](https://wavesexplorer.com/), [Testnet](https://testnet.wavesexplorer.com/), [Stagenet](https://stagenet.wavesexplorer.com/) 
+- Blockchain Explorer: [Mainnet](https://apsio02.iut-blagnac.fr/explorer)
 - [Ride Online IDE](https://waves-ide.com/)
 
 ## 📝 Licence
@@ -207,8 +174,8 @@ The code in this project is licensed under [MIT license](./LICENSE)
 
 ## 👏 Acknowledgements
 
-[<img src="https://camo.githubusercontent.com/97fa03cac759a772255b93c64ab1c9f76a103681/68747470733a2f2f7777772e796f75726b69742e636f6d2f696d616765732f796b6c6f676f2e706e67">](https://www.yourkit.com/)
+### Waves
 
-We use YourKit full-featured Java Profiler to make Waves node faster. YourKit, LLC is the creator of innovative and intelligent tools for profiling Java and .NET applications.
-
-Take a look at YourKit's leading software products: YourKit Java Profiler and YourKit .NET Profiler.
+As the project is forked from [Waves protocol](https://github.com/wavesplatform/Waves) we say a big thank you for building a such incredible blockchain.
+<br>
+We hope that Waves will become one of the largest blockchain of the world, with a living ecosystem.
