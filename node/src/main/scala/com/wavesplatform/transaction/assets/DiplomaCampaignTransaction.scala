@@ -109,11 +109,14 @@ object DiplomaCampaignTransaction extends TransactionParser {
     ): Either[ValidationError, DiplomaCampaignTransaction] = 
         signed(version, sender.publicKey, diplomes, fee, timestamp, sender.privateKey)
 
-    //TODO: parsed diplôme
+    /**
+    Permet d'obtenir la liste des diplômes
+    */
     def parseDiplomesList(diplomes: List[Diplome]): Validation[List[ParsedDiplome]] = {
         diplomes.traverse {
-            case Diplome(assetId, sender, recipient, name, description) => 
-                AddressOrAlias(fromString())
+            case Diplome(assetId, sender, recipient, name, description) => AddressOrAlias.fromString(sender) match{
+                case Right(s) => AddressOrAlias.fromString(recipient).map(ParsedDiplome(assetId, s, _, name, description))
+            }
         }
     }
 

@@ -75,29 +75,41 @@ object  TransactionFactory {
       )
     } yield tx
 
-    def diplomaCampaign(request: DiplomaCampaignRequest, sender: PublicKey): Either[ValidationError, DiplomaCampaignTransaction] = 
-      for {
-        diplomes <- DiplomaCampaignTransaction.parseTransfersList(request.diplomes)
-        tx <- MassTransferTransaction.create(
+  def diplomaCampaign(request: DiplomaCampaignRequest, wallet: Wallet, time: Time): Either[ValidationError, DiplomaCampaignTransaction] = 
+    diplomaCampaign(request, wallet, request.sender, time)
+
+  def diplomaCampaign(request: DiplomaCampaignRequest, sender: PublicKey): Either[ValidationError, DiplomaCampaignTransaction] = 
+    for {
+      diplomes <- DiplomaCampaignTransaction.parseDiplomesList(request.diplomes)
+      tx <- DiplomaCampaignTransaction.create(
+        request.version.getOrElse(1.toByte),
+        sender,
+        diplomes,
+        request.fee,
+        0,
+        Proofs.empty
+      )
+    } yield tx
+
+  def diplomaCampaign(
+      request: DiplomaCampaignRequest,
+      wallet: Wallet,
+      signerAddress: String,
+      time: Time
+  ): Either[ValidationError, DiplomaCampaignTransaction] = 
+    for {
+        sender   <- wallet.findPrivateKey(request.sender)
+        signer   <- if (request.sender == signerAddress) Right(sender) else wallet.findPrivateKey(signerAddress)
+        diplomes <- DiplomaCampaignTransaction.parseDiplomesList(request.diplomes)
+        tx       <- DiplomaCampaignTransaction.signed(
           request.version.getOrElse(1.toByte),
-          sender,
+          sender.publicKey,
           diplomes,
           request.fee,
-          0,
-          Proofs.empty
+          request.timestamp.getOrElse(time.getTimestamp()),
+          signer.privateKey
         )
-      } yield tx
-
-      def diplomaCampaign(
-          request: DiplomaCampaignRequest,
-          wallet: Wallet,
-          signerAddress: String,
-          time: Time
-      ) Either[ValidationError, DiplomaCampaignTransaction] => 
-        for {
-            diplomes <- DiplomaCampaignTransaction.parseTran
-
-        } yield tx
+    } yield tx
 
   def setScript(request: SetScriptRequest, wallet: Wallet, time: Time): Either[ValidationError, SetScriptTransaction] =
     setScript(request, wallet, request.sender, time)

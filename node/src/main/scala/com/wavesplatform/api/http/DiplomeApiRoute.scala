@@ -29,11 +29,10 @@ case class DiplomeApiRoute(
                 balances ~ getDiplome
             } 
 
-
         //Route qui permet de récupérer tous les diplomes d'un étudiants
         def balances: Route = (path("balances" / AddrSegment) & get){ address => 
             complete(Json.obj(
-               "message" -> "La route diplomes/balances est en cours d'implémentation" 
+               "message" -> s"La route diplomes/balances est en cours d'implémentation $address" 
             ))
         }
 
